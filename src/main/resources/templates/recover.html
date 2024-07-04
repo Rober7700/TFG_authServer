@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Crear Cuenta-Numen</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet"
+		crossorigin="anonymous" />
+</head>
+
+<body>
+	<div class="auth-box__container" data-hash-visible="recover">
+		<h1 class="auth-box__title">
+			Cambia tu contraseña
+		</h1>
+		<div>
+			<div th:if="${error}" class="alert alert-danger" role="alert">
+				<p th:text="${error}"></p>
+			</div>
+			<form method="post" th:action="@{/recover}" accept-charset="UTF-8"><input type="hidden" name="form_type"
+					value="recover_customer_password"><input type="hidden" name="utf8" value="✓">
+				<div class="mb-3">
+					<label for="username" class="sr-only">Tu email</label>
+					<input type="email" id="username" name="username" class="form-control" placeholder="Tu email"
+						required autofocus>
+				</div><button type="submit" class="btn btn-primary w-100 btn-lg mb-3">
+					Enviar
+				</button>
+				<div class="auth-box__links">
+					<p>
+						¿Ya tienes cuenta?<br><a href="/account/login">Inicia sesión</a>
+					</p>
+					<p>
+						¿Aún no tienes cuenta?<br><a href="/account/register">Regístrate</a>
+					</p>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>
